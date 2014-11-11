@@ -1,4 +1,4 @@
-#include "HelloWorldScene.h"
+﻿#include "HelloWorldScene.h"
 
 USING_NS_CC;
 
@@ -22,18 +22,29 @@ bool HelloWorld::init()
 {
     //////////////////////////////
     // 1. super init first
-    if ( !LayerColor::initWithColor(Color4B(255,255,255,255)) )
+    if ( !LayerColor::initWithColor(Color4B(200,0,155,255)) )
     {
         return false;
     }
 
+	Size winSize = Director::getInstance()->getWinSize();
+
 	auto spr = Sprite::create("Icon-57.png");
 	spr->setAnchorPoint(Point(.5f, .5f));
-	spr->setPosition(Point(100, 100));
+	spr->setPosition(Point::ZERO + Point(winSize.width, winSize.height));
 	addChild(spr);
 
 	setScale(0.5f);
 	
+
+	auto label = Label::createWithSystemFont("HelloWorld", "Gulim", 60);
+	label->setPosition(Point(240, 160));
+	addChild(label);
+
+	label = Label::createWithSystemFont("안녕하세요", "Thonburi", 60);
+	label->setPosition(Point(240, 100));
+	addChild(label);
+
     return true;
 }
 
